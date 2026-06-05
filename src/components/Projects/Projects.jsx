@@ -3,49 +3,49 @@ import styles from './Projects.module.css'
 
 /* TODO: Replace each project entry with your real project data.
    - title: project name
-   - desc: one-line descriptor
-   - tags: array of category strings
-   - size: 'full' (spans both columns) or 'half' (single column)
+   - role: short descriptor shown on right (e.g. "UX Design · B2B SaaS")
+   - bg: placeholder background colour — remove once you add a real image
+   - desc: kept for accessibility / future use
 */
 const projects = [
   {
     id: 1,
     title: 'Enterprise Data Platform',
+    role: 'UX Design · B2B SaaS',
+    bg: '#C8BFB5',
     desc: 'Redesigning a complex analytics workspace for 200+ B2B clients',
-    tags: ['UX Design', 'B2B SaaS', 'User Research'],
-    size: 'full',
   },
   {
     id: 2,
     title: 'Design System 2.0',
+    role: 'Design Systems · Figma',
+    bg: '#1E1D1B',
     desc: 'A unified component library that cut design debt by 40%',
-    tags: ['Design Systems', 'Figma', 'Documentation'],
-    size: 'half',
   },
   {
     id: 3,
     title: 'Onboarding Revamp',
+    role: 'Information Architecture',
+    bg: '#D0D7DF',
     desc: 'Reducing time-to-value from 14 days to under 3 for new enterprise users',
-    tags: ['Information Architecture', 'Prototyping'],
-    size: 'half',
   },
   {
     id: 4,
     title: 'Mobile Companion App',
+    role: 'Mobile UX · Enterprise',
+    bg: '#3558BF',
     desc: 'Extending a desktop-first platform to mobile without losing power',
-    tags: ['Mobile UX', 'Enterprise', 'Cross-platform'],
-    size: 'full',
   },
 ]
 
 const containerVariants = {
   hidden: {},
-  visible: { transition: { staggerChildren: 0.12 } },
+  visible: { transition: { staggerChildren: 0.1 } },
 }
 
 const itemVariants = {
-  hidden:   { opacity: 0, y: 44 },
-  visible:  { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  hidden:  { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
 }
 
 export default function Projects() {
@@ -55,16 +55,9 @@ export default function Projects() {
     <section className={styles.projects} id="projects">
       <div className={styles.inner}>
 
-        <motion.header
-          className={styles.header}
-          initial={shouldReduceMotion ? false : { opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
-          viewport={{ once: true, margin: '-80px' }}
-        >
-          <span className={`text-caption ${styles.label}`}>Selected Work</span>
-          <h2 className={styles.title}>Projects that mattered.</h2>
-        </motion.header>
+        <div className={styles.sectionLabel}>
+          <span className={styles.label}>Work</span>
+        </div>
 
         <motion.div
           className={styles.grid}
@@ -76,28 +69,22 @@ export default function Projects() {
           {projects.map(project => (
             <motion.article
               key={project.id}
-              className={`${styles.card} ${styles[project.size]}`}
+              className={styles.card}
               variants={shouldReduceMotion ? {} : itemVariants}
               data-cursor="project"
             >
-              {/* TODO: Replace this placeholder div with a real <img> or background-image */}
-              <div className={styles.imageWrap}>
-                <div className={styles.imagePlaceholder}>
-                  <span className="text-caption">[{project.title}]</span>
-                </div>
-                <div className={styles.overlay} aria-hidden="true" />
-              </div>
+              {/* TODO: Replace this div with a real <img src="..." alt="..." className={styles.projectImage} /> */}
+              <div
+                className={styles.imageWrap}
+                style={{ backgroundColor: project.bg }}
+                aria-label={project.title}
+              />
 
-              <div className={styles.cardContent}>
+              <div className={styles.meta}>
                 {/* TODO: Replace project title */}
                 <h3 className={styles.cardTitle}>{project.title}</h3>
-                {/* TODO: Replace project description */}
-                <p className={styles.cardDesc}>{project.desc}</p>
-                <div className={styles.tags}>
-                  {project.tags.map(tag => (
-                    <span key={tag} className={styles.tag}>{tag}</span>
-                  ))}
-                </div>
+                {/* TODO: Replace role label */}
+                <span className={styles.cardRole}>{project.role}</span>
               </div>
             </motion.article>
           ))}

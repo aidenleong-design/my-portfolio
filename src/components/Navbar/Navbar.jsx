@@ -2,11 +2,9 @@ import { useState, useEffect } from 'react'
 import styles from './Navbar.module.css'
 
 const navLinks = [
-  { label: 'About',      id: 'about'      },
   { label: 'Work',       id: 'projects'   },
-  { label: 'Skills',     id: 'skills'     },
+  { label: 'About',      id: 'about'      },
   { label: 'Experience', id: 'experience' },
-  { label: 'Fun',        id: 'fun'        },
   { label: 'Contact',    id: 'contact'    },
 ]
 
@@ -20,14 +18,12 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Close mobile nav on resize to desktop
   useEffect(() => {
     const onResize = () => { if (window.innerWidth >= 768) setIsOpen(false) }
     window.addEventListener('resize', onResize)
     return () => window.removeEventListener('resize', onResize)
   }, [])
 
-  // Lock body scroll while mobile nav is open
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
@@ -41,9 +37,10 @@ export default function Navbar() {
 
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
-      <a href="/" className={styles.logo}>Aiden Leong</a>
 
-      {/* Desktop navigation */}
+      {/* TODO: Replace "AL" with your actual logo mark or monogram SVG */}
+      <a href="/" className={styles.logo} aria-label="Aiden Leong — Home">AL</a>
+
       <ul className={styles.desktopLinks}>
         {navLinks.map(link => (
           <li key={link.id}>
@@ -58,7 +55,6 @@ export default function Navbar() {
         ))}
       </ul>
 
-      {/* Hamburger button — CSS only, no library */}
       <button
         className={`${styles.hamburger} ${isOpen ? styles.open : ''}`}
         onClick={() => setIsOpen(prev => !prev)}
@@ -70,7 +66,6 @@ export default function Navbar() {
         <span />
       </button>
 
-      {/* Mobile overlay */}
       <div className={`${styles.mobileOverlay} ${isOpen ? styles.mobileOverlayOpen : ''}`} aria-hidden={!isOpen}>
         <ul className={styles.mobileLinks}>
           {navLinks.map((link, i) => (
