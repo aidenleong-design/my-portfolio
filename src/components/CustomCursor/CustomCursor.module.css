@@ -1,0 +1,33 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, width, height;
+  /* GSAP manages transform; initial opacity set via gsap.set */
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  color: white;
+  opacity: 0;
+  white-space: nowrap;
+  user-select: none;
+  letter-spacing: 0.04em;
+}
+
+@media (pointer: coarse) {
+  .cursor {
+    display: none;
+  }
+}

@@ -1,0 +1,181 @@
+.projects {
+  padding: var(--space-xl) var(--space-md);
+  border-top: 1px solid var(--color-muted);
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: var(--space-lg);
+}
+
+.label {
+  display: inline-block;
+  color: var(--color-accent);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+  font-weight: 300;
+  font-style: italic;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+}
+
+/* ─── Grid ─── */
+/* Layout: full | half + half | full */
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.card {
+  position: relative;
+}
+
+.full {
+  grid-column: 1 / -1;
+}
+
+.half {
+  grid-column: span 1;
+}
+
+/* ─── Card image ─── */
+
+.imageWrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  background-color: var(--color-muted);
+}
+
+.full .imageWrap {
+  aspect-ratio: 16 / 7;
+}
+
+.half .imageWrap {
+  aspect-ratio: 4 / 3;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: inherit;
+  transition: transform 0.5s ease;
+  will-change: transform;
+  position: relative;
+  z-index: 0;
+}
+
+.imagePlaceholder span {
+  color: #bbb;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-accent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.card:hover .overlay {
+  opacity: 0.1;
+}
+
+.card:hover .imagePlaceholder {
+  transform: scale(1.025);
+}
+
+/* ─── Card content ─── */
+
+.cardContent {
+  padding: var(--space-sm) 0 0.25rem;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2vw, 1.55rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.4rem;
+  transition: color 0.2s;
+}
+
+.card:hover .cardTitle {
+  color: var(--color-accent);
+}
+
+.cardDesc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+  line-height: 1.55;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid #d0d0cc;
+  border-radius: 100px;
+  color: #999;
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 767px) {
+  .projects {
+    padding: var(--space-lg) var(--space-sm);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .full,
+  .half {
+    grid-column: 1 / -1;
+  }
+
+  .full .imageWrap {
+    aspect-ratio: 4 / 3;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .grid {
+    gap: var(--space-sm);
+  }
+
+  .full .imageWrap {
+    aspect-ratio: 16 / 8;
+  }
+}
