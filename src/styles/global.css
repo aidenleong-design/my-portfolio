@@ -15,6 +15,7 @@
 
   --font-display: 'Fraunces', serif;
   --font-body: 'Inclusive Sans', sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Consolas, monospace;
 
   --space-xs: 0.5rem;
   --space-sm: 1rem;
