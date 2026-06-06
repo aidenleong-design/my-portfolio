@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  min-height: 100svh;
+  min-height: 60svh;
   padding: calc(72px + 2.5rem) var(--space-md) 0;
   display: flex;
   flex-direction: column;
@@ -22,8 +22,8 @@
 .body {
   flex: 1;
   display: flex;
-  align-items: center;
-  padding: var(--space-lg) 0 var(--space-md);
+  align-items: flex-start;
+  padding: var(--space-md) 0 var(--space-md);
 }
 
 .main { min-width: 0; max-width: 860px; }
