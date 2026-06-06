@@ -55,11 +55,11 @@ export default function Projects() {
     <section className={styles.projects} id="projects">
       <div className={styles.inner}>
 
-        {/* Editorial section marker */}
-        <div className={styles.marker}>
-          <span className={styles.markerNum}>§ 01</span>
-          <span className={styles.markerLabel}>Selected Work</span>
-          <span className={styles.markerNote}>Four projects, 2022—2026</span>
+        {/* Editorial section marker — shared utility, see global.css */}
+        <div className="section-marker">
+          <span className="section-marker__num">§ 01</span>
+          <span className="section-marker__label">Selected Work</span>
+          <span className="section-marker__note">Four projects, 2022—2026</span>
         </div>
 
         <motion.div

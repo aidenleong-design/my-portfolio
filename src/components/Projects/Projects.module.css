@@ -8,31 +8,6 @@
   margin: 0 auto;
 }
 
-/* ─── Editorial section marker ─── */
-
-.marker {
-  display: grid;
-  grid-template-columns: auto auto 1fr;
-  align-items: baseline;
-  gap: 1rem;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  padding-bottom: 1rem;
-  margin-bottom: var(--space-lg);
-  border-bottom: 1px solid var(--color-muted);
-}
-
-.markerNum { color: var(--color-accent); }
-.markerLabel { color: #555; }
-.markerNote {
-  justify-self: end;
-  color: #aaa;
-  text-transform: none;
-  letter-spacing: 0.04em;
-}
-
 /* ─── Grid ─── */
 
 .grid {
@@ -114,14 +89,16 @@
 }
 
 .cardRule {
-  width: 0;
+  width: 28px;
   height: 1px;
   background: var(--color-accent);
-  transition: width 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 320ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .card:hover .cardRule {
-  width: 28px;
+  transform: scaleX(1);
 }
 
 .cardRole {
@@ -140,9 +117,6 @@
   .projects {
     padding: var(--space-lg) var(--space-sm);
   }
-
-  .marker { margin-bottom: var(--space-md); }
-  .markerNote { display: none; }
 
   .grid {
     grid-template-columns: 1fr;

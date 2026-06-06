@@ -96,7 +96,7 @@ export default function Hero() {
             <span className={styles.wordSlot} aria-hidden="true">
               <span ref={wordRef} className={styles.word}>{ROTATING_WORDS[0]}</span>
             </span>
-            <span className={styles.srOnly}>complex</span>{' '}
+            <span className={styles.srOnly}>{ROTATING_WORDS[0]}</span>{' '}
             enterprise software into something people{' '}
             <em>actually</em> want to use.
           </h1>

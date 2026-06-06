@@ -26,11 +26,11 @@ export default function About() {
     <section className={styles.about} id="about">
       <div className={styles.inner}>
 
-        {/* Editorial section marker — matches the hero masthead voice */}
-        <motion.div className={styles.marker} {...fadeUp}>
-          <span className={styles.markerNum}>§ 02</span>
-          <span className={styles.markerLabel}>About</span>
-          <span className={styles.markerNote}>The person behind the pixels</span>
+        {/* Editorial section marker — shared utility, see global.css */}
+        <motion.div className="section-marker" {...fadeUp}>
+          <span className="section-marker__num">§ 02</span>
+          <span className="section-marker__label">About</span>
+          <span className="section-marker__note">The person behind the pixels</span>
         </motion.div>
 
         <div className={styles.container}>
