@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import styles from './Hero.module.css'
 
-const ROTATING_WORDS = ['complex', 'complicated', 'overbuilt']
+const ROTATING_WORDS = ['complex', 'difficult', 'overbuilt']
 
 export default function Hero() {
   const rootRef = useRef(null)
