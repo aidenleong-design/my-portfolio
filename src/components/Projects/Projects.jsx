@@ -55,8 +55,11 @@ export default function Projects() {
     <section className={styles.projects} id="projects">
       <div className={styles.inner}>
 
-        <div className={styles.sectionLabel}>
-          <span className={styles.label}>Work</span>
+        {/* Editorial section marker */}
+        <div className={styles.marker}>
+          <span className={styles.markerNum}>§ 01</span>
+          <span className={styles.markerLabel}>Selected Work</span>
+          <span className={styles.markerNote}>Four projects, 2022—2026</span>
         </div>
 
         <motion.div
@@ -66,7 +69,7 @@ export default function Projects() {
           whileInView="visible"
           viewport={{ once: true, margin: '-60px' }}
         >
-          {projects.map(project => (
+          {projects.map((project, i) => (
             <motion.article
               key={project.id}
               className={styles.card}
@@ -78,11 +81,18 @@ export default function Projects() {
                 className={styles.imageWrap}
                 style={{ backgroundColor: project.bg }}
                 aria-label={project.title}
-              />
+              >
+                <span className={styles.cardIndex} aria-hidden="true">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+              </div>
 
               <div className={styles.meta}>
-                {/* TODO: Replace project title */}
-                <h3 className={styles.cardTitle}>{project.title}</h3>
+                <div className={styles.metaText}>
+                  {/* TODO: Replace project title */}
+                  <h3 className={styles.cardTitle}>{project.title}</h3>
+                  <span className={styles.cardRule} aria-hidden="true" />
+                </div>
                 {/* TODO: Replace role label */}
                 <span className={styles.cardRole}>{project.role}</span>
               </div>

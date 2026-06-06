@@ -1,26 +1,48 @@
 .about {
-  padding: var(--space-xl) var(--space-md);
-  border-top: 1px solid var(--color-muted);
+  padding: var(--space-xl) var(--space-md) var(--space-lg);
+  border-top: 1px solid var(--color-text);
 }
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ─── Editorial section marker ─── */
+
+.marker {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: baseline;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding-bottom: 1rem;
+  margin-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-muted);
+}
+
+.markerNum { color: var(--color-accent); }
+.markerLabel { color: #555; }
+.markerNote {
+  justify-self: end;
+  color: #aaa;
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
+/* ─── Layout ─── */
 
 .container {
   display: grid;
   grid-template-columns: 60fr 40fr;
   gap: clamp(2rem, 6vw, 5rem);
-  max-width: 1200px;
-  margin: 0 auto;
   align-items: start;
 }
 
 /* ─── Text ─── */
-
-.label {
-  display: inline-block;
-  color: var(--color-accent);
-  font-size: 0.75rem;
-  letter-spacing: 0.12em;
-  margin-bottom: var(--space-md);
-}
 
 .heading {
   font-family: var(--font-display);
@@ -29,6 +51,7 @@
   line-height: 1.1;
   letter-spacing: -0.02em;
   margin-bottom: var(--space-md);
+  text-wrap: balance;
 }
 
 .heading em {
@@ -48,7 +71,21 @@
   color: #4a4a48;
 }
 
-/* ─── Image ─── */
+/* Editorial drop cap on the lead paragraph */
+.lead::first-letter {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 3.4em;
+  line-height: 0.72;
+  float: left;
+  margin: 0.08em 0.1em 0 0;
+  color: var(--color-accent);
+}
+
+/* ─── Image figure ─── */
+
+.imageCol { margin: 0; }
 
 .imagePlaceholder {
   width: 100%;
@@ -57,11 +94,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 2px;
+  border: 1px solid var(--color-text);
 }
 
-.imagePlaceholder span {
-  color: #aaa;
+.imagePlaceholder span { color: #aaa; }
+
+.figCaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #999;
 }
 
 /* ─── Responsive ─── */
@@ -76,6 +123,12 @@
   .about {
     padding: var(--space-lg) var(--space-sm);
   }
+
+  .marker {
+    margin-bottom: var(--space-md);
+  }
+
+  .markerNote { display: none; }
 
   .container {
     grid-template-columns: 1fr;
