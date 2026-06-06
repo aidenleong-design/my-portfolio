@@ -1,12 +1,6 @@
 {
   "version": 1,
   "skills": {
-    "ckm:banner-design": {
-      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
-      "sourceType": "github",
-      "skillPath": ".claude/skills/banner-design/SKILL.md",
-      "computedHash": "7bbf0f48704f5c40436e3466d7ef9bcbafe35a84eb8c3e9d0ab76408a57bac5c"
-    },
     "ckm:brand": {
       "source": "nextlevelbuilder/ui-ux-pro-max-skill",
       "sourceType": "github",
@@ -24,12 +18,6 @@
       "sourceType": "github",
       "skillPath": ".claude/skills/design-system/SKILL.md",
       "computedHash": "49b8308dc428c66b0983f4b3d102c522c495f62538121064d1e82a040b1afd2c"
-    },
-    "ckm:slides": {
-      "source": "nextlevelbuilder/ui-ux-pro-max-skill",
-      "sourceType": "github",
-      "skillPath": ".claude/skills/slides/SKILL.md",
-      "computedHash": "6d753831914ed6703b7222153f2710efc2f195f0ab24fd2119c76c2b6d1a6ba1"
     },
     "ckm:ui-styling": {
       "source": "nextlevelbuilder/ui-ux-pro-max-skill",
