@@ -3,7 +3,6 @@ import styles from './Navbar.module.css'
 
 const navLinks = [
   { label: 'Work',       id: 'projects'   },
-  { label: 'About',      id: 'about'      },
   { label: 'Experience', id: 'experience' },
   { label: 'Contact',    id: 'contact'    },
 ]
