@@ -51,13 +51,22 @@ const itemVariants = {
 export default function Projects() {
   const shouldReduceMotion = useReducedMotion()
 
+  const labelReveal = shouldReduceMotion
+    ? {}
+    : {
+        initial:     { opacity: 0, y: 24 },
+        whileInView: { opacity: 1, y: 0 },
+        transition:  { duration: 0.55, ease: 'easeOut' },
+        viewport:    { once: true, margin: '-60px' },
+      }
+
   return (
     <section className={styles.projects} id="projects">
       <div className={styles.inner}>
 
-        <div className={styles.sectionLabel}>
+        <motion.div className={styles.sectionLabel} {...labelReveal}>
           <span className={styles.label}>Work</span>
-        </div>
+        </motion.div>
 
         <motion.div
           className={styles.grid}

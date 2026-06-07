@@ -18,7 +18,7 @@
   font-size: 0.72rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #bbb;
+  color: #9a9a94;
 }
 
 /* ─── Grid ─── */
@@ -84,7 +84,7 @@
   font-size: 0.68rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #bbb;
+  color: #9a9a94;
   white-space: nowrap;
   flex-shrink: 0;
 }
