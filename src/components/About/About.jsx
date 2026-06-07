@@ -4,21 +4,30 @@ import styles from './About.module.css'
 export default function About() {
   const shouldReduceMotion = useReducedMotion()
 
-  const fadeUp = shouldReduceMotion
+  const textGroup = shouldReduceMotion
     ? {}
     : {
-        initial:     { opacity: 0, y: 40 },
-        whileInView: { opacity: 1, y: 0 },
-        transition:  { duration: 0.6, ease: 'easeOut' },
+        initial:     'hidden',
+        whileInView: 'visible',
         viewport:    { once: true, margin: '-100px' },
+        variants:    { visible: { transition: { staggerChildren: 0.1 } } },
+      }
+
+  const textItem = shouldReduceMotion
+    ? {}
+    : {
+        variants: {
+          hidden:  { opacity: 0, y: 28 },
+          visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } },
+        },
       }
 
   const fadeUpDelayed = shouldReduceMotion
     ? {}
     : {
-        initial:     { opacity: 0, y: 40 },
+        initial:     { opacity: 0, y: 28 },
         whileInView: { opacity: 1, y: 0 },
-        transition:  { duration: 0.6, ease: 'easeOut', delay: 0.18 },
+        transition:  { duration: 0.6, ease: 'easeOut', delay: 0.2 },
         viewport:    { once: true, margin: '-100px' },
       }
 
@@ -27,15 +36,17 @@ export default function About() {
       <div className={styles.container}>
 
         {/* Text column */}
-        <motion.div className={styles.textCol} {...fadeUp}>
-          <span className={`text-caption ${styles.label}`}>About</span>
+        <motion.div className={styles.textCol} {...textGroup}>
+          <motion.span className={`text-caption ${styles.label}`} {...textItem}>
+            About
+          </motion.span>
 
-          <h2 className={styles.heading}>
+          <motion.h2 className={styles.heading} {...textItem}>
             Designing for<br />
             <em>people, not screens.</em>
-          </h2>
+          </motion.h2>
 
-          <div className={styles.bio}>
+          <motion.div className={styles.bio} {...textItem}>
             {/* TODO: Replace with your actual bio paragraph 1 */}
             <p className="text-body">
               I'm a Product Designer based in San Francisco, specialising in B2B SaaS and
@@ -50,7 +61,7 @@ export default function About() {
               more instinctive. It keeps my eye for composition sharp and reminds me that
               design, at its heart, is about making things feel just right.
             </p>
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* Photo column */}

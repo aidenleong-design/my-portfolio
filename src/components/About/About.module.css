@@ -51,17 +51,26 @@
 /* ─── Image ─── */
 
 .imagePlaceholder {
+  position: relative;
   width: 100%;
   aspect-ratio: 3 / 4;
   background-color: var(--color-muted);
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 2px;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
+
+.imageCol:hover .imagePlaceholder {
+  transform: scale(1.015);
 }
 
 .imagePlaceholder span {
-  color: #aaa;
+  color: #bbb;
+  letter-spacing: 0.05em;
 }
 
 /* ─── Responsive ─── */
