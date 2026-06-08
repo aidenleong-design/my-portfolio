@@ -4,7 +4,6 @@ import styles from './Projects.module.css'
 /* TODO: Replace each project entry with your real project data.
    - title: project name
    - year: year shown in the badge next to the title
-   - link: "See it live" URL — omit to hide the button
    - challenge / services / role: the three meta columns
    - bg: placeholder background colour — remove once you add a real image/video
 */
@@ -13,7 +12,6 @@ const projects = [
     id: 1,
     title: 'Improved Encrypted Data Applications',
     year: '2024',
-    link: 'https://example.com',
     challenge: 'Ship a complex encryption workflow for B2B clients without breaking trust in a high-stakes enterprise deal.',
     services: ['Product Design', 'Design Systems'],
     role: 'Led the end-to-end workflow design and partnered with engineering to land it inside the AWS design system.',
@@ -23,7 +21,6 @@ const projects = [
     id: 2,
     title: 'Design System 2.0',
     year: '2023',
-    link: 'https://example.com',
     challenge: 'Unify a fractured component library across five product teams without slowing active roadmaps.',
     services: ['Design Systems', 'Figma', 'Documentation'],
     role: 'Audited the existing library, defined new tokens and components, and rolled it out — cutting design debt by 40%.',
@@ -33,7 +30,6 @@ const projects = [
     id: 3,
     title: 'Onboarding Revamp',
     year: '2023',
-    link: '',
     challenge: 'New enterprise users were taking 14 days to reach their first meaningful outcome.',
     services: ['Information Architecture', 'Interaction Design'],
     role: 'Restructured the activation flow end to end, bringing time-to-value down to under three days.',
@@ -43,7 +39,6 @@ const projects = [
     id: 4,
     title: 'Mobile Companion App',
     year: '2022',
-    link: 'https://example.com',
     challenge: 'Extend a desktop-first platform to mobile for field teams without losing the power users relied on.',
     services: ['Mobile UX', 'Prototyping'],
     role: 'Defined the mobile interaction model and shipped the first release with the platform team.',
@@ -103,22 +98,6 @@ export default function Projects() {
                   </span>
                   {/* TODO: Replace project title */}
                   <h3 className={styles.cardTitle}>{project.title}</h3>
-
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className={styles.liveLink}
-                    >
-                      <span className={styles.liveLinkLabel}>See it live</span>
-                      <span className={styles.liveLinkIcon} aria-hidden="true">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                          <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </span>
-                    </a>
-                  )}
                 </div>
 
                 <div className={styles.metaGrid}>

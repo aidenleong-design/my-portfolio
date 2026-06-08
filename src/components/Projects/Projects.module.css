@@ -98,44 +98,6 @@
   line-height: 1.15;
 }
 
-.liveLink {
-  display: inline-flex;
-  align-items: center;
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 9999px;
-  background: var(--color-text);
-  transition: transform 0.2s var(--ease-settle), background-color 0.2s var(--ease-settle);
-}
-
-.liveLinkLabel {
-  padding: 0.7rem 1.1rem 0.7rem 1.4rem;
-}
-
-.liveLinkIcon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 2.1rem;
-  height: 2.1rem;
-  margin: 0.25rem 0.25rem 0.25rem 0;
-  border-radius: 50%;
-  background: var(--accent);
-  color: #fff;
-  transition: transform 0.3s var(--ease-settle);
-}
-
-.liveLink:hover {
-  transform: translateY(-2px);
-}
-
-.liveLink:hover .liveLinkIcon {
-  transform: rotate(45deg);
-}
-
 .metaGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -293,21 +255,11 @@
 
 @media (prefers-reduced-motion: reduce) {
   .media,
-  .liveLink,
-  .liveLinkIcon,
   .tint {
     transition: none;
   }
 
   .card:hover .media {
-    transform: none;
-  }
-
-  .liveLink:hover {
-    transform: none;
-  }
-
-  .liveLink:hover .liveLinkIcon {
     transform: none;
   }
 }
