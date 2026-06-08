@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import styles from './Projects.module.css'
 
@@ -16,6 +17,7 @@ const projects = [
     services: ['Product Design', 'Design Systems'],
     role: 'Led the end-to-end workflow design and partnered with engineering to land it inside the AWS design system.',
     bg: '#C8BFB5',
+    href: '/work/msf-encryption',
   },
   {
     id: 2,
@@ -98,6 +100,11 @@ export default function Projects() {
                   </span>
                   {/* TODO: Replace project title */}
                   <h3 className={styles.cardTitle}>{project.title}</h3>
+                  {project.href && (
+                    <Link to={project.href} className={styles.caseStudyLink}>
+                      View case study →
+                    </Link>
+                  )}
                 </div>
 
                 <div className={styles.metaGrid}>

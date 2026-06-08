@@ -98,6 +98,19 @@
   line-height: 1.15;
 }
 
+.caseStudyLink {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.caseStudyLink:hover { opacity: 1; }
+
 .metaGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

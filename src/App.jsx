@@ -7,6 +7,7 @@ import Projects from './components/Projects/Projects'
 import Experience from './components/Experience/Experience'
 import Contact from './components/Contact/Contact'
 import About from './components/About/About'
+import CaseStudyMSF from './components/CaseStudyMSF/CaseStudyMSF'
 
 function HomePage() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/work/msf-encryption" element={<CaseStudyMSF />} />
       </Routes>
     </BrowserRouter>
   )
