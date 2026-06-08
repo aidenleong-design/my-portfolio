@@ -3,38 +3,51 @@ import styles from './Projects.module.css'
 
 /* TODO: Replace each project entry with your real project data.
    - title: project name
-   - role: short descriptor shown on right (e.g. "UX Design · B2B SaaS")
-   - bg: placeholder background colour — remove once you add a real image
-   - desc: kept for accessibility / future use
+   - year: year shown in the badge next to the title
+   - link: "See it live" URL — omit to hide the button
+   - challenge / services / role: the three meta columns
+   - bg: placeholder background colour — remove once you add a real image/video
 */
 const projects = [
   {
     id: 1,
-    title: 'Enterprise Data Platform',
-    role: 'UX Design · B2B SaaS',
+    title: 'Improved Encrypted Data Applications',
+    year: '2024',
+    link: 'https://example.com',
+    challenge: 'Ship a complex encryption workflow for B2B clients without breaking trust in a high-stakes enterprise deal.',
+    services: ['Product Design', 'Design Systems'],
+    role: 'Led the end-to-end workflow design and partnered with engineering to land it inside the AWS design system.',
     bg: '#C8BFB5',
-    desc: 'Redesigning a complex analytics workspace for 200+ B2B clients',
   },
   {
     id: 2,
     title: 'Design System 2.0',
-    role: 'Design Systems · Figma',
+    year: '2023',
+    link: 'https://example.com',
+    challenge: 'Unify a fractured component library across five product teams without slowing active roadmaps.',
+    services: ['Design Systems', 'Figma', 'Documentation'],
+    role: 'Audited the existing library, defined new tokens and components, and rolled it out — cutting design debt by 40%.',
     bg: '#1E1D1B',
-    desc: 'A unified component library that cut design debt by 40%',
   },
   {
     id: 3,
     title: 'Onboarding Revamp',
-    role: 'Information Architecture',
+    year: '2023',
+    link: '',
+    challenge: 'New enterprise users were taking 14 days to reach their first meaningful outcome.',
+    services: ['Information Architecture', 'Interaction Design'],
+    role: 'Restructured the activation flow end to end, bringing time-to-value down to under three days.',
     bg: '#D0D7DF',
-    desc: 'Reducing time-to-value from 14 days to under 3 for new enterprise users',
   },
   {
     id: 4,
     title: 'Mobile Companion App',
-    role: 'Mobile UX · Enterprise',
+    year: '2022',
+    link: 'https://example.com',
+    challenge: 'Extend a desktop-first platform to mobile for field teams without losing the power users relied on.',
+    services: ['Mobile UX', 'Prototyping'],
+    role: 'Defined the mobile interaction model and shipped the first release with the platform team.',
     bg: '#3558BF',
-    desc: 'Extending a desktop-first platform to mobile without losing power',
   },
 ]
 
@@ -80,20 +93,67 @@ export default function Projects() {
               key={project.id}
               className={styles.card}
               variants={shouldReduceMotion ? {} : itemVariants}
-              data-cursor="project"
+              style={{ '--accent': project.bg }}
             >
-              {/* TODO: Replace this div with a real <img src="..." alt="..." className={styles.projectImage} /> */}
-              <div
-                className={styles.imageWrap}
-                style={{ backgroundColor: project.bg }}
-                aria-label={project.title}
-              />
+              <header className={styles.cardHeader}>
+                <div className={styles.intro}>
+                  <span className={styles.yearBadge}>
+                    <span className={styles.accentDot} />
+                    {project.year}
+                  </span>
+                  {/* TODO: Replace project title */}
+                  <h3 className={styles.cardTitle}>{project.title}</h3>
 
-              <div className={styles.meta}>
-                {/* TODO: Replace project title */}
-                <h3 className={styles.cardTitle}>{project.title}</h3>
-                {/* TODO: Replace role label */}
-                <span className={styles.cardRole}>{project.role}</span>
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className={styles.liveLink}
+                    >
+                      <span className={styles.liveLinkLabel}>See it live</span>
+                      <span className={styles.liveLinkIcon} aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                          <path d="M7 17 17 7M9 7h8v8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </span>
+                    </a>
+                  )}
+                </div>
+
+                <div className={styles.metaGrid}>
+                  <div className={styles.metaCol}>
+                    <span className={styles.metaLabel}>Challenge</span>
+                    {/* TODO: Replace challenge description */}
+                    <p className={styles.metaText}>{project.challenge}</p>
+                  </div>
+
+                  <div className={styles.metaCol}>
+                    <span className={styles.metaLabel}>Services</span>
+                    <div className={styles.tagList}>
+                      {/* TODO: Replace service tags */}
+                      {project.services.map(service => (
+                        <span key={service} className={styles.tag}>{service}</span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className={styles.metaCol}>
+                    <span className={styles.metaLabel}>Role</span>
+                    {/* TODO: Replace role description */}
+                    <p className={styles.metaText}>{project.role}</p>
+                  </div>
+                </div>
+              </header>
+
+              <div className={styles.imageWrap} data-cursor="project">
+                {/* TODO: Replace this div with a real <video muted loop playsInline className={styles.media} /> (or <img>) */}
+                <div
+                  className={styles.media}
+                  style={{ backgroundColor: project.bg }}
+                  aria-label={project.title}
+                />
+                <div className={styles.tint} />
               </div>
             </motion.article>
           ))}

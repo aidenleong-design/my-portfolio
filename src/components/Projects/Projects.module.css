@@ -25,72 +25,239 @@
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
+  grid-template-columns: 1fr;
 }
 
 /* ─── Card ─── */
 
 .card {
   position: relative;
+  /* One easing curve for the whole hover choreography — the media (large,
+     background) settles slowly on it; small foreground accents resolve
+     quickly on the same curve, so the motion reads as one gesture. */
+  --ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid rgba(30, 29, 27, 0.1);
 }
 
-.imageWrap {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: 4px;
-  overflow: hidden;
-  transition: transform 0.45s ease;
-  will-change: transform;
+.grid > .card:first-child {
+  padding-top: 0;
 }
 
-.card:hover .imageWrap {
-  transform: scale(1.015);
+.grid > .card:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
-/* When you add a real image, it fills the imageWrap */
-.projectImage {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+/* ─── Header: title, year, CTA + Challenge / Services / Role columns ─── */
 
-/* ─── Card metadata ─── */
-
-.meta {
+.cardHeader {
   display: flex;
-  align-items: baseline;
+  flex-wrap: wrap;
   justify-content: space-between;
-  gap: 1rem;
-  padding-top: 0.875rem;
+  gap: 2.5rem;
+  padding-bottom: 2.25rem;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1rem;
+  max-width: 22rem;
+}
+
+.yearBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9a9a94;
+  border: 1px solid rgba(30, 29, 27, 0.14);
+  border-radius: 9999px;
+  padding: 0.35rem 0.8rem;
+}
+
+.accentDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
 }
 
 .cardTitle {
   font-family: var(--font-body);
-  font-size: clamp(0.9rem, 1.3vw, 1.05rem);
-  font-weight: 400;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 600;
   color: var(--color-text);
-  letter-spacing: -0.005em;
-  transition: color 0.2s;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
 }
 
-.card:hover .cardTitle {
-  color: #555;
-}
-
-.cardRole {
+.liveLink {
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-body);
-  font-size: 0.68rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 9999px;
+  background: var(--color-text);
+  transition: transform 0.2s var(--ease-settle), background-color 0.2s var(--ease-settle);
+}
+
+.liveLinkLabel {
+  padding: 0.7rem 1.1rem 0.7rem 1.4rem;
+}
+
+.liveLinkIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  margin: 0.25rem 0.25rem 0.25rem 0;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  transition: transform 0.3s var(--ease-settle);
+}
+
+.liveLink:hover {
+  transform: translateY(-2px);
+}
+
+.liveLink:hover .liveLinkIcon {
+  transform: rotate(45deg);
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  flex: 1 1 32rem;
+  max-width: 46rem;
+}
+
+.metaCol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.metaLabel {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: #9a9a94;
+}
+
+.metaText {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: #6f6f6a;
+  max-width: 26ch;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--color-text);
+  border: 1px solid rgba(30, 29, 27, 0.14);
+  border-radius: 9999px;
+  padding: 0.4rem 0.85rem;
   white-space: nowrap;
-  flex-shrink: 0;
+}
+
+/* ─── Media block ─── */
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* The colour block today; a hover-triggered <video> or <img> tomorrow.
+   Lives on its own layer so it can scale without affecting the tint above it. */
+.media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1);
+  transition: transform 0.5s var(--ease-settle);
+  will-change: transform;
+}
+
+.card:hover .media {
+  transform: scale(1.04);
+}
+
+/* Tints the media with the project's own accent colour on hover —
+   a clear, deliberate cue that this block belongs to this project. */
+.tint {
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  mix-blend-mode: multiply;
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-settle);
+}
+
+.card:hover .tint {
+  opacity: 0.22;
 }
 
 /* ─── Responsive ─── */
 
+/* Tablet: keep title/CTA and the meta info side by side, but stack
+   Challenge / Services / Role vertically in their own column — mirrors
+   the two-column case-study layout rather than squeezing 3 columns in. */
+@media (max-width: 1023px) {
+  .cardHeader {
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    gap: 2.25rem;
+  }
+
+  .intro {
+    flex: 0 0 14rem;
+    max-width: 14rem;
+  }
+
+  .metaGrid {
+    grid-template-columns: 1fr;
+    flex: 1;
+    max-width: none;
+    gap: 1.85rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .grid {
+    gap: 1rem;
+  }
+}
+
+/* Mobile: not enough width for two columns — stack everything,
+   title and CTA first, then Challenge / Services / Role. */
 @media (max-width: 767px) {
   .projects {
     padding: 0 var(--space-sm) var(--space-lg);
@@ -98,12 +265,49 @@
 
   .grid {
     grid-template-columns: 1fr;
-    gap: 1.25rem;
+    gap: 2.5rem;
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 1.75rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .intro {
+    flex: 1 1 auto;
+    max-width: none;
+  }
+
+  .metaGrid {
+    grid-template-columns: 1fr;
+    max-width: none;
+    gap: 1.5rem;
+  }
+
+  .imageWrap {
+    aspect-ratio: 4 / 3;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
-  .grid {
-    gap: 1rem;
+@media (prefers-reduced-motion: reduce) {
+  .media,
+  .liveLink,
+  .liveLinkIcon,
+  .tint {
+    transition: none;
+  }
+
+  .card:hover .media {
+    transform: none;
+  }
+
+  .liveLink:hover {
+    transform: none;
+  }
+
+  .liveLink:hover .liveLinkIcon {
+    transform: none;
   }
 }

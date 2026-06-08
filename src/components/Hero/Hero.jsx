@@ -54,7 +54,7 @@ export default function Hero() {
             </span>
             <span className={styles.srOnly}>complex</span>{' '}
             enterprise software into something people{' '}
-            <em>actually</em> want to use.
+            <b><em>actually</em></b> want to use.
           </h1>
         </div>
       </div>
