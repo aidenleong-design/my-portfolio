@@ -11,12 +11,13 @@ import styles from './Projects.module.css'
 const projects = [
   {
     id: 1,
-    title: 'Improved Encrypted Data Applications',
+    title: 'Designing AWS MSF Encryption Workflow',
     year: '2024',
     challenge: 'Ship a complex encryption workflow for B2B clients without breaking trust in a high-stakes enterprise deal.',
     services: ['Product Design', 'Design Systems'],
     role: 'Led the end-to-end workflow design and partnered with engineering to land it inside the AWS design system.',
     bg: '#C8BFB5',
+    image: '/case-study-msf/encryption-container-only.png',
     href: '/work/msf-encryption',
   },
   {
@@ -133,12 +134,26 @@ export default function Projects() {
               </header>
 
               <div className={styles.imageWrap} data-cursor="project">
-                {/* TODO: Replace this div with a real <video muted loop playsInline className={styles.media} /> (or <img>) */}
-                <div
-                  className={styles.media}
-                  style={{ backgroundColor: project.bg }}
-                  aria-label={project.title}
-                />
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className={`${styles.media} ${styles.mediaContain}`}
+                  />
+                ) : (
+                  <div
+                    className={styles.media}
+                    style={{ backgroundColor: project.bg }}
+                    aria-label={project.title}
+                  />
+                )}
+                {project.href && (
+                  <Link
+                    to={project.href}
+                    className={styles.imageOverlay}
+                    aria-label={`View case study: ${project.title}`}
+                  />
+                )}
                 <div className={styles.tint} />
               </div>
             </motion.article>

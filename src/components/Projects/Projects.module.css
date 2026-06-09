@@ -185,6 +185,11 @@
   transform: scale(1.04);
 }
 
+.mediaContain {
+  object-fit: contain;
+  background-color: #ffffff;
+}
+
 /* Tints the media with the project's own accent colour on hover —
    a clear, deliberate cue that this block belongs to this project. */
 .tint {
@@ -198,6 +203,13 @@
 
 .card:hover .tint {
   opacity: 0.22;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
 }
 
 /* ─── Responsive ─── */

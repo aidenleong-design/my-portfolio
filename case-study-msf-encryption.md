@@ -1,28 +1,28 @@
 ---
-title: "Bringing Encryption Under Developer Control on AWS Managed Service for Flink"
+title: "Designing AWS MSF's Encryption Controls"
 role: Product Designer
 company: Amazon Web Services
 timeline: "Q4 2024, ~3 months"
 tags: [product design, developer tools, encryption, AWS, UX, design systems]
 ---
 
-An enterprise client in a heavily regulated industry flagged a hard requirement: they needed customer-managed encryption for their data pipelines on AWS Managed Service for Flink (MSF). Until then, encryption had been invisible — handled automatically with AWS-owned keys, with no controls exposed anywhere in the product. No flow existed to change or configure any of it.
+An enterprise client in a heavily regulated industry flagged a hard requirement: they needed customer-managed encryption for their data pipelines on AWS Managed Service for Flink (MSF). Until then, encryption had been invisible and handled automatically with AWS-owned keys, with no controls exposed anywhere in the product. No flow existed to change or configure any of it.
 
 If we couldn't build this, we lost the deal. If we built it poorly, we'd create a complex security workflow even harder to navigate for the developers using it.
 
-I was the sole product designer on the project, working with front-end and back-end engineers, a product manager, and a technical writer. I owned the UX design end to end.
+I was the sole product designer on the project, working with front-end and back-end engineers, a product manager, and a technical writer. I owned the UX design end-to-end.
 
 ---
 
 ## The Problem
 
-Data encryption on MSF covers two surfaces: data at rest and data in transit. Both had been locked to AWS-owned keys with no user-facing controls. The new requirement was Customer Managed Keys (CMK) — keys that the customer owns and configures in Amazon Key Management Service (KMS), another AWS service.
+Data encryption on MSF covers two surfaces: data at rest and data in transit. Both had been locked to AWS-owned keys with no user-facing controls. The new requirement was Customer Managed Keys (CMK), keys that the customer owns and configures in Amazon Key Management Service (KMS), another AWS service.
 
-The domain is genuinely dense. CMKs aren't just a field in a form. They carry IAM permission dependencies, are managed by a separate persona (a Key Administrator, not the developer creating the Flink application), and live in a different AWS service entirely. A developer trying to create an application with CMK encryption is, in many cases, dependent on work someone else has already done — or hasn't yet.
+The domain is dense and complex. CMKs aren't just a field in a form. They carry IAM permission dependencies, are managed by a separate persona (a Key Administrator, not the developer creating the Flink application), and live in a different AWS service entirely. A developer trying to create an application with CMK encryption is, in many cases, dependent on work someone else has already done — or hasn't yet.
 
 Three things made this hard to design well:
 
-**Two personas with an invisible dependency.** The developer creates the application. The Key Administrator configures and grants access to the keys. These two people may never interact directly, but one's work gates the other's. Any error in that handoff falls on the developer's screen as a cryptic permission failure.
+**Two personas with an invisible dependency.** The developer creates the application. The Key Administrator configures and grants access to the keys. These two people may never interact directly or often, but one's work gates the other's. Any error in that handoff falls on the developer's screen as a cryptic permission failure.
 
 **Cross-service consistency constraints.** CMK selection required coordinating with the KMS design team. They had established patterns that the AWS design system team had already approved. I had design opinions of my own, but changing course would have fragmented the experience across AWS services and damaged a cross-team relationship I needed. I made the call to adopt the KMS pattern and put my energy into the parts I owned.
 
@@ -80,7 +80,7 @@ If the selected key has a permission issue, the error message tells the develope
 
 That last detail — the copy-to-send-to-admin pattern — was the most deliberate design decision in the error state. The error isn't the developer's to fix; it's the Key Administrator's. The message had to bridge a person-to-person handoff, not just surface a status code.
 
-![Create application form with encryption section](./screenshots/encryption-container.png)
+![Create application form with encryption section](./screenshots/encryption-container-only.png)
 *The Encryption section within the create-application form. In-transit (informational) and at-rest (configurable) are co-located so compliance reviewers see both surfaces at once.*
 
 ![CMK browse modal](./screenshots/cmk-browse-modal.png)

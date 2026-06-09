@@ -13,7 +13,7 @@ const challenges = [
   {
     num:   '01',
     title: 'Two personas, one invisible dependency',
-    body:  'The developer creates the application. The Key Administrator configures and grants access to the keys. One\'s work gates the other\'s — any error in that handoff lands on the developer\'s screen as a cryptic permission failure.',
+    body:  'The developer creates the application. The Key Administrator configures and grants access to the keys. One\'s work gates the other\'s and any error in that handoff lands on the developer\'s screen as a cryptic permission failure.',
   },
   {
     num:   '02',
@@ -31,7 +31,7 @@ const decisions = [
   {
     num:   '01',
     title: 'Include in-transit encryption even though CMK isn\'t available there yet',
-    body:  'The product manager pushed back: why surface a setting users can\'t change? My argument: compliance officers need to see that transit encryption is covered — not just at-rest. Hiding it wouldn\'t simplify the experience; it would create doubt during security reviews. Structurally, the container already existed; adding the transit row cost almost nothing and left the surface extensible when CMK support for transit ships. The PM agreed. That section shipped.',
+    body:  'The product manager pushed back: why surface a setting users can\'t change? My argument: compliance officers need to see that transit encryption is covered, not just at-rest. Hiding it wouldn\'t simplify the experience; it would create doubt during security reviews. Structurally, the container already existed; adding the transit row cost almost nothing and left the surface extensible when more encryption features for data in transit ships. The PM agreed. That section shipped.',
   },
   {
     num:   '02',
@@ -83,7 +83,7 @@ export default function CaseStudyMSF() {
           Case Study · AWS · Q4 2024
         </motion.span>
         <motion.h1 className={styles.heroTitle} {...anim(0.05)}>
-          Bringing Encryption<br />Under Developer Control
+          Designing AWS MSF's<br />Encryption Controls
         </motion.h1>
         <motion.p className={styles.heroSub} {...anim(0.1)}>
           AWS Managed Service for Apache Flink
@@ -104,7 +104,7 @@ export default function CaseStudyMSF() {
         {[
           { label: 'Role',     value: 'Product Designer' },
           { label: 'Company',  value: 'Amazon Web Services' },
-          { label: 'Timeline', value: 'Q4 2024 · ~3 months' },
+          { label: 'Timeline', value: 'Q4 2024 · 3 months' },
           { label: 'Scope',    value: 'Product Design · Design Systems' },
         ].map(m => (
           <div key={m.label} className={styles.metaItem}>
@@ -120,14 +120,14 @@ export default function CaseStudyMSF() {
           <motion.p className={`text-body ${styles.lead}`} {...anim()}>
             An enterprise client in a heavily regulated industry flagged a hard requirement:
             they needed customer-managed encryption for their data pipelines on AWS Managed
-            Service for Flink. Until then, encryption had been invisible — handled automatically
+            Service for Flink. Until then, encryption had been invisible and handled automatically
             with AWS-owned keys, with no controls exposed anywhere in the product.
           </motion.p>
           <motion.p className={`text-body ${styles.lead}`} {...anim(0.05)}>
             If we couldn't build this, we lost the deal. If we built it poorly, we'd make
             a complex security workflow even harder to navigate for developers. I was the sole
             product designer, working with front-end and back-end engineers, a product manager,
-            and a technical writer. I owned the UX design end to end.
+            and a technical writer. I owned the UX design end-to-end.
           </motion.p>
         </div>
       </section>
@@ -277,7 +277,7 @@ export default function CaseStudyMSF() {
         <div className={styles.prose}>
           <motion.p className="text-body" {...anim(0.1)}>
             I wanted research sessions where a Key Administrator and a developer attempted
-            to build a Flink application together — synchronously (testing the real-time
+            to build a Flink application together, synchronously (testing the real-time
             handoff) and asynchronously (testing when the admin's setup happens separately
             and the developer picks up later). That second scenario is where the hardest
             friction likely lives, and I designed for it based on domain reasoning rather
@@ -286,7 +286,7 @@ export default function CaseStudyMSF() {
           <motion.p className="text-body" {...anim(0.12)}>
             What this project changed in how I think about design: working across AWS service
             boundaries is different from working inside a single product. You're not just
-            designing for your users — you're designing around decisions other teams have
+            designing for your users, you're designing around decisions other teams have
             already made. Adopting the KMS browse UI felt like a concession in the moment.
             Looking back, it was the right trade, and it freed me to go deeper on error
             handling — which turned out to be where I had the most to contribute.
