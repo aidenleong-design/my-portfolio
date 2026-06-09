@@ -1,5 +1,5 @@
 ---
-title: "Designing AWS MSF's Encryption Controls"
+title: "Designing AWS MSF's Encryption Workflow"
 role: Product Designer
 company: Amazon Web Services
 timeline: "Q4 2024, ~3 months"

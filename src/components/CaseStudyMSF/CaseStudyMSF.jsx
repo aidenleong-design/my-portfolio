@@ -83,7 +83,7 @@ export default function CaseStudyMSF() {
           Case Study · AWS · Q4 2024
         </motion.span>
         <motion.h1 className={styles.heroTitle} {...anim(0.05)}>
-          Designing AWS MSF's<br />Encryption Controls
+          Designing AWS MSF's<br />Encryption Workflow
         </motion.h1>
         <motion.p className={styles.heroSub} {...anim(0.1)}>
           AWS Managed Service for Apache Flink

@@ -3,10 +3,9 @@ import { Link, useLocation } from 'react-router-dom'
 import styles from './Navbar.module.css'
 
 const navLinks = [
-  { label: 'Work',       type: 'scroll', id: 'projects'   },
-  { label: 'About',      type: 'route',  href: '/about'   },
-  { label: 'Experience', type: 'scroll', id: 'experience' },
-  { label: 'Contact',    type: 'scroll', id: 'contact'    },
+  { label: 'Work',    type: 'scroll', id: 'projects' },
+  { label: 'About',   type: 'route',  href: '/about' },
+  { label: 'Contact', type: 'scroll', id: 'contact'  },
 ]
 
 export default function Navbar() {
