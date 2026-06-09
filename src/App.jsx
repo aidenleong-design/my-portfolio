@@ -30,7 +30,7 @@ function AboutPage() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/my-portfolio">
       <CustomCursor />
       <Navbar />
       <Routes>
