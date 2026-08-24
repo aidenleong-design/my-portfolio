@@ -47,19 +47,29 @@ export default function About() {
           </motion.h2>
 
           <motion.div className={styles.bio} {...textItem}>
-            {/* TODO: Replace with your actual bio paragraph 1 */}
             <p className="text-body">
-              I'm a Product Designer based in San Francisco, specialising in B2B SaaS and
-              enterprise software. My work lives at the intersection of complex systems and
-              human clarity — turning sprawling workflows, data-dense dashboards, and
-              multi-stakeholder processes into experiences that feel almost obvious.
+              I'm a Product Designer based in the San Francisco Bay Area with 3+ years
+              designing B2B SaaS and enterprise software — the kind of products with
+              five stakeholders, three permission levels, and a compliance officer who
+              has to sign off before anything ships. I'm at my best in that mess: mapping
+              who actually needs what, then building a case for the decision that survives
+              contact with legal, security, and an engineering team with opinions of
+              their own.
             </p>
-            {/* TODO: Replace with your actual bio paragraph 2 */}
             <p className="text-body">
-              When I'm not wrestling with information architecture or running usability
-              studies, I'm illustrating. Drawing is where I think differently — looser,
-              more instinctive. It keeps my eye for composition sharp and reminds me that
-              design, at its heart, is about making things feel just right.
+              Right now I volunteer as a Product Designer for{' '}
+              <a
+                href="https://www.respondcrisistranslation.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`cursor-hover ${styles.inlineLink}`}
+              >
+                Respond Crisis Translation
+              </a>
+              , a volunteer network that gets interpreters to people in crisis. Outside
+              of client work, I illustrate — it's where I think looser and more
+              instinctively, and it keeps my eye for composition sharp for everything
+              else I design.
             </p>
           </motion.div>
         </motion.div>

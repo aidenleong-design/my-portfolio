@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Inclusive+Sans:ital@0;1&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -13,7 +13,7 @@
   --color-navy: #0D1F5C;
   --color-muted: #E8E8E4;
 
-  --font-display: 'Inclusive Sans', sans-serif;
+  --font-display: 'Fraunces', 'Georgia', serif;
   --font-body: 'Inclusive Sans', sans-serif;
   --font-mono: ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Consolas, monospace;
 

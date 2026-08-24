@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import styles from './CaseStudyMSF.module.css'
 
+const IMG_BASE = `${import.meta.env.BASE_URL}case-study-msf/`
+
 const fadeUp = (delay = 0) => ({
   initial:     { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
@@ -93,7 +95,7 @@ export default function CaseStudyMSF() {
       {/* ─── Hero image ─── */}
       <motion.div className={styles.heroImageWrap} {...anim(0.15)}>
         <img
-          src="/case-study-msf/encryption-container.png"
+          src={`${IMG_BASE}encryption-container.png`}
           alt="The encryption settings container inside the MSF create application form"
           className={styles.heroImg}
         />
@@ -210,7 +212,7 @@ export default function CaseStudyMSF() {
         <div className={styles.screenshotStack}>
           <motion.figure className={styles.screenshot} {...anim()}>
             <img
-              src="/case-study-msf/encryption-container.png"
+              src={`${IMG_BASE}encryption-container.png`}
               alt="Create application form with encryption settings showing at-rest radio options and in-transit TLS notice"
             />
             <figcaption className={styles.caption}>
@@ -222,7 +224,7 @@ export default function CaseStudyMSF() {
 
           <motion.figure className={styles.screenshot} {...anim(0.05)}>
             <img
-              src="/case-study-msf/cmk-browse-modal.png"
+              src={`${IMG_BASE}cmk-browse-modal.png`}
               alt="KMS key picker modal showing customer managed keys list with alias, key ID, and enabled status"
             />
             <figcaption className={styles.caption}>
@@ -233,7 +235,7 @@ export default function CaseStudyMSF() {
 
           <motion.figure className={styles.screenshot} {...anim(0.1)}>
             <img
-              src="/case-study-msf/permission-error.png"
+              src={`${IMG_BASE}permission-error.png`}
               alt="Permission error state with specific key ARN, IAM context in copyable block, and link to KMS console"
             />
             <figcaption className={styles.caption}>

@@ -28,10 +28,10 @@ export default function Contact() {
             <em>together.</em>
           </h2>
 
-          {/* TODO: Replace copy with your preferred message */}
           <p className={styles.subtext}>
-            Whether it's an enterprise product challenge, an illustration commission,
-            or just a great conversation — I'd love to hear from you.
+            If you've got an ambiguous product problem that needs a designer who'll
+            map it before proposing anything — or an illustration commission — I'd
+            like to hear about it.
           </p>
 
           <div className={styles.links}>
@@ -43,9 +43,8 @@ export default function Contact() {
               aidenleong.design@gmail.com
             </a>
 
-            {/* TODO: Replace "#linkedin" with your LinkedIn profile URL */}
             <a
-              href="#linkedin"
+              href="https://linkedin.com/in/aidenleong"
               className={`cursor-hover ${styles.contactLink}`}
               target="_blank"
               rel="noopener noreferrer"

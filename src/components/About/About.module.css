@@ -48,6 +48,19 @@
   color: #4a4a48;
 }
 
+.inlineLink {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-decoration-color: rgba(27, 79, 255, 0.35);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+
+.inlineLink:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
+
 /* ─── Image ─── */
 
 .imagePlaceholder {

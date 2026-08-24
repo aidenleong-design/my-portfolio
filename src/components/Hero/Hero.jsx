@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import styles from './Hero.module.css'
 
-const ROTATING_WORDS = ['complex', 'difficult', 'overbuilt']
+const ROTATING_WORDS = ['ambiguous', 'undefined', 'contested']
 
 export default function Hero() {
   const rootRef = useRef(null)
@@ -48,14 +48,20 @@ export default function Hero() {
       <div className={styles.body}>
         <div className={styles.main}>
           <h1 className={styles.headline} data-reveal>
-            I&apos;m Aiden, a product designer who turns{' '}
+            I&apos;m Aiden, a product designer who takes{' '}
             <span className={styles.wordSlot} aria-hidden="true">
               <span ref={wordRef} className={styles.word}>{ROTATING_WORDS[0]}</span>
             </span>
-            <span className={styles.srOnly}>complex</span>{' '}
-            enterprise software into something people{' '}
-            <b><em>actually</em></b> want to use.
+            <span className={styles.srOnly}>ambiguous</span>{' '}
+            enterprise problems and turns them into decisions{' '}
+            <b><em>someone can stand behind</em></b>.
           </h1>
+          <p className={styles.subhead} data-reveal>
+            Product Designer specializing in B2B SaaS and enterprise software.
+            I don&apos;t guess my way through dense, multi-stakeholder problems —
+            I map them, test the assumptions, and design a rationale that holds
+            up when compliance, engineering, and legal all ask why.
+          </p>
         </div>
       </div>
     </section>
