@@ -1,40 +1,29 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import styles from './Experience.module.css'
 
-/* TODO: Replace each job entry with your real work history.
-   Fields: company, role, dates, bullets (array of strings)
+/* TODO: Add earlier roles here if you have more work history to include —
+   same shape: { id, company, role, dates, bullets }.
 */
 const jobs = [
   {
     id: 1,
-    company: 'Acme Corp',
-    role: 'Senior Product Designer',
-    dates: '2022 — Present',
+    company: 'Respond Crisis Translation',
+    role: 'Volunteer Product Designer',
+    dates: 'Ongoing',
     bullets: [
-      'Led end-to-end design for a multi-stakeholder data platform serving 200+ enterprise clients across APAC.',
-      'Established a shared design system that reduced component-build time by 40% and eliminated cross-team inconsistency.',
-      'Facilitated weekly design reviews and cross-functional workshops to align product, engineering, and customer success.',
+      'Design for a volunteer network that connects interpreters to people in crisis in real time.',
+      'Work independently across a distributed, mission-driven team with no dedicated design org.',
     ],
   },
   {
     id: 2,
-    company: 'Studio Somewhere',
-    role: 'Product Designer',
-    dates: '2020 — 2022',
+    company: 'Amazon Web Services',
+    role: 'Product Designer — Managed Service for Apache Flink',
+    dates: 'Q4 2024 · 3 months',
     bullets: [
-      'Owned the redesign of a core admin dashboard used daily by 3,000+ operations managers.',
-      'Conducted 60+ user interviews across three countries to surface unmet needs in the onboarding flow.',
-      'Collaborated with front-end engineers to build a reusable pattern library in Storybook.',
-    ],
-  },
-  {
-    id: 3,
-    company: 'Freelance',
-    role: 'UX Designer & Illustrator',
-    dates: '2018 — 2020',
-    bullets: [
-      'Designed web and mobile products for early-stage startups in fintech, health, and e-commerce.',
-      'Created editorial illustrations for publications and brand campaigns.',
+      'Sole UX lead on a customer-managed encryption workflow spanning three personas and a dependency on Amazon KMS — built to retain a regulated-industry enterprise client.',
+      'Designed progressive disclosure for key selection and a scalable browse modal, aligning with the KMS design team\'s existing patterns rather than fragmenting the cross-service experience.',
+      'Authored an error-handling system built for persona handoff; the pattern was reviewed and adopted into the AWS design system.',
     ],
   },
 ]
@@ -100,9 +89,15 @@ export default function Experience() {
         </motion.div>
 
         <div className={styles.cta}>
-          {/* TODO: Replace "#resume" with your Google Drive resume link */}
-          <a href="#resume" className={`cursor-hover ${styles.resumeBtn}`}>
-            View Full Resume ↗
+          {/* TODO: Swap this href for your resume file/link once it's ready.
+              Pointing at LinkedIn in the meantime so this isn't a dead link. */}
+          <a
+            href="https://linkedin.com/in/aidenleong"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`cursor-hover ${styles.resumeBtn}`}
+          >
+            More on LinkedIn ↗
           </a>
         </div>
 

@@ -111,6 +111,15 @@
 
 .caseStudyLink:hover { opacity: 1; }
 
+.placeholderTag {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9a9a94;
+  font-style: italic;
+}
+
 .metaGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

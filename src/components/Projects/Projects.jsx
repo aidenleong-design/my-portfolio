@@ -2,11 +2,13 @@ import { Link } from 'react-router-dom'
 import { motion, useReducedMotion } from 'framer-motion'
 import styles from './Projects.module.css'
 
-/* TODO: Replace each project entry with your real project data.
+/* TODO: Projects 2–4 are placeholders — swap in real project data when ready.
    - title: project name
    - year: year shown in the badge next to the title
    - challenge / services / role: the three meta columns
    - bg: placeholder background colour — remove once you add a real image/video
+   - placeholder: true marks a card as illustrative (shows a "Placeholder" tag,
+     no case-study link). Remove this flag once the project is real.
 */
 const projects = [
   {
@@ -17,7 +19,7 @@ const projects = [
     services: ['Product Design', 'Design Systems'],
     role: 'Led the end-to-end workflow design and partnered with engineering to land it inside the AWS design system.',
     bg: '#C8BFB5',
-    image: '/case-study-msf/encryption-container-only.png',
+    image: `${import.meta.env.BASE_URL}case-study-msf/encryption-container-only.png`,
     href: '/work/msf-encryption',
   },
   {
@@ -28,6 +30,7 @@ const projects = [
     services: ['Design Systems', 'Figma', 'Documentation'],
     role: 'Audited the existing library, defined new tokens and components, and rolled it out — cutting design debt by 40%.',
     bg: '#1E1D1B',
+    placeholder: true,
   },
   {
     id: 3,
@@ -37,6 +40,7 @@ const projects = [
     services: ['Information Architecture', 'Interaction Design'],
     role: 'Restructured the activation flow end to end, bringing time-to-value down to under three days.',
     bg: '#D0D7DF',
+    placeholder: true,
   },
   {
     id: 4,
@@ -46,6 +50,7 @@ const projects = [
     services: ['Mobile UX', 'Prototyping'],
     role: 'Defined the mobile interaction model and shipped the first release with the platform team.',
     bg: '#3558BF',
+    placeholder: true,
   },
 ]
 
@@ -99,12 +104,14 @@ export default function Projects() {
                     <span className={styles.accentDot} />
                     {project.year}
                   </span>
-                  {/* TODO: Replace project title */}
                   <h3 className={styles.cardTitle}>{project.title}</h3>
                   {project.href && (
                     <Link to={project.href} className={styles.caseStudyLink}>
                       View case study →
                     </Link>
+                  )}
+                  {project.placeholder && (
+                    <span className={styles.placeholderTag}>Placeholder — full case study coming soon</span>
                   )}
                 </div>
 
