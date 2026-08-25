@@ -1,3 +1,6 @@
 # Python caches from skill scripts
 __pycache__/
 *.pyc
+
+# Dependencies — installed via `npm ci`/`npm install`, not committed
+node_modules/
